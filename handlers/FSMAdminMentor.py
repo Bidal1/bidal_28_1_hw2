@@ -2,6 +2,7 @@ from aiogram import types, Dispatcher
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from config import ADMINS
 from aiogram.dispatcher import FSMContext
+from database.bot_dp import sql_command_insert
 
 
 class fsmAdminMentor(StatesGroup):
@@ -65,6 +66,7 @@ async def load_group(message: types.Message, state: FSMContext):
 async def load_sumbit(message: types.Message, state: FSMContext):
     if message.text == 'да':
         await message.answer('готово')
+        await sql_command_insert(state)
         await state.finish()
     elif message.text == 'нет':
         await message.answer('хорошо')
