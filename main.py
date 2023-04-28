@@ -20,7 +20,7 @@ callback.register_handlers_callback(dp)
 admin.register_handlers_admin(dp)
 register_message_Bot_db(dp)
 
-extra.register_handlers_extra(dp)
+# extra.register_handlers_extra(dp)
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
